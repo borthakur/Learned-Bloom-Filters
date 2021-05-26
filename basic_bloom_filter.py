@@ -5,11 +5,6 @@ import numpy as np
 import math
 
 
-# In[6]:
-
-
-bit_array = bitarray(10)
-bit_array.setall(0)
 
 # In[8]:
 
