@@ -54,6 +54,7 @@ def addrandom(bf,n,r):
 def fpr(bf,nums,r):
     for i in range(int(len(nums)*r)):
         if(bf.lookup(nums[i])==False):
+            print(nums[i])
             return -1
     count = 0
     for i in range(int(len(nums)*r),len(nums)):
@@ -72,7 +73,7 @@ def eff_k(m,n,r):
 #(Input:size of bloom filter, number of hash functions, total numbers, ratio of numbers inserted; Output: fpr)
 def find_fpr(m,k,n,r):
     bf=BloomFilter(m,k)
-    data=addrandom(bf,n,0.3)
+    data=addrandom(bf,n,r)
     return fpr(bf,data,r)
 
 #(Input:size of bloom filter, total numbers, ratio of numbers inserted; Output: prints inputs and fpr)
@@ -84,6 +85,7 @@ def outputs(m,n,r):
 m = [10,100,1000,10000,100000]
 n = [40,400,4000,40000,400000]
 r = 0.5
+
 
 for i in m:
     for j in n:
