@@ -70,5 +70,6 @@ def find_fpr(m,k,n,r):
 def outputs(m,k,n,r):
     print("For m=%d, k=%d, n=%d, r=%.3f: fpr=%.3f"%(m,k,n,r,find_fpr(m,k,n,r)))
 
-outputs(100,3,100,0.3)
+
+#(Input:size of bloom filter, number of hash functions, total numbers, ratio of numbers inserted; Output: fpr)
 outputs(100,3,100,0.3)
