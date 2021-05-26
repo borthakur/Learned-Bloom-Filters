@@ -1,17 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
-# In[4]:
-
-
-
-
-# In[12]:
-
-
 from bitarray import bitarray
 import mmh3
 import random
@@ -23,10 +9,6 @@ import numpy as np
 
 bit_array = bitarray(10)
 bit_array.setall(0)
-
-
-# In[7]:
-
 
 # In[8]:
 
@@ -51,13 +33,6 @@ class BloomFilter:
                 return False
         return True
 
-
-# In[9]:
-
-
-bf = BloomFilter(100,3)
-
-
 # In[13]:
 
 
@@ -69,13 +44,6 @@ def addrandom(bf,n,r):
     for j in range(0,int(n*r)):
         bf.add(data[j]);
     return data
-
-
-# In[14]:
-
-data=addrandom(bf,100,0.3)
-print(bf.lookup(data[60]))
-print(bf.lookup(data[25]))
 
 
 # In[ ]
@@ -92,6 +60,11 @@ def fpr(bf,nums,r):
             count+=1
     return count/len(nums)
 
-print(fpr(bf,data,0.3))
 
+#(Input:size of bloom filter, number of hash functions, total numbers, ratio of numbers inserted; Output: fpr)
+def find_fpr(m,k,n,r):
+    bf=BloomFilter(m,k)
+    data=addrandom(bf,n,0.3)
+    return fpr(bf,data,r)
 
+print(find_fpr(100,3,100,0.3))
