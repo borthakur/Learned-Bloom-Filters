@@ -2,6 +2,7 @@ from bitarray import bitarray
 import mmh3
 import random
 import numpy as np
+import math
 
 
 # In[6]:
@@ -60,6 +61,10 @@ def fpr(bf,nums,r):
             count+=1
     return count/len(nums)
 
+#(Input:bloom filter size, total random numbers, ratio of number inserted; Output:efficient number of hash functions)
+def eff_k(m,n,r):
+    return int(m/(int(n*r))*math.log(2))
+
 
 #(Input:size of bloom filter, number of hash functions, total numbers, ratio of numbers inserted; Output: fpr)
 def find_fpr(m,k,n,r):
@@ -67,9 +72,10 @@ def find_fpr(m,k,n,r):
     data=addrandom(bf,n,0.3)
     return fpr(bf,data,r)
 
-def outputs(m,k,n,r):
+def outputs(m,n,r):
+    k=eff_k(m,n,r)
     print("For m=%d, k=%d, n=%d, r=%.3f: fpr=%.3f"%(m,k,n,r,find_fpr(m,k,n,r)))
 
 
-#(Input:size of bloom filter, number of hash functions, total numbers, ratio of numbers inserted; Output: fpr)
-outputs(100,3,100,0.3)
+#(Input:size of bloom filter, total numbers, ratio of numbers inserted; Output: fpr)
+outputs(100,100,0.3)
