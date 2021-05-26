@@ -100,7 +100,7 @@ print(bf.lookup(data[25]))
 
 # In[ ]:
 
-%Function inputs bloom filter, number array and number of entries from number array and outputs -1 if there is false negative, and otherwise false positive rates
+'''Function inputs bloom filter, number array and number of entries from number array and outputs -1 if there is false negative, and otherwise false positive rates'''
 def fpr(bf,nums,pos):
     for i in range(pos):
         if(bf.lookup(nums[i])==False):
@@ -111,4 +111,6 @@ def fpr(bf,nums,pos):
             count+=1
     return count/len(nums)
 
+print(fpr(bf,data,50))
 
+# %%
