@@ -67,4 +67,8 @@ def find_fpr(m,k,n,r):
     data=addrandom(bf,n,0.3)
     return fpr(bf,data,r)
 
-print(find_fpr(100,3,100,0.3))
+def outputs(m,k,n,r):
+    print("For m=%d, k=%d, n=%d, r=%.3f: fpr=%.3f"%(m,k,n,r,find_fpr(m,k,n,r)))
+
+outputs(100,3,100,0.3)
+outputs(100,3,100,0.3)
