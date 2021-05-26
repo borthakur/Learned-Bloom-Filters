@@ -60,7 +60,7 @@ def fpr(bf,nums,r):
     for i in range(int(len(nums)*r),len(nums)):
         if(bf.lookup(nums[i])==True):
             count+=1
-    return count/len(nums)
+    return count/(len(nums)-int(len(nums)*r))
 
 #(Input:bloom filter size, total random numbers, ratio of number inserted; Output:efficient number of hash functions)
 def eff_k(m,n,r):
