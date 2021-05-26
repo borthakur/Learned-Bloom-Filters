@@ -84,21 +84,25 @@ print(bf.lookup(2876))
 # In[13]:
 
 
-data=np.empty(100,dtype=int)
-for i in range(0,100):
-    data[i]=random.randint(0, 100000000)
-for j in range(0,50):
-    bf.add(data[j]);
+#adds an array of random integers of size n (input : size, output: data array)
+def addrandom(n):
+    data=np.empty(n,dtype=int)
+    for i in range(0,n):
+        data[i]=random.randint(0, 100000000)
+    for j in range(0,n//2):
+        bf.add(data[j]);
+    return data
 
 
 # In[14]:
 
-
+addrandom(100)
 print(bf.lookup(data[60]))
 print(bf.lookup(data[25]))
 
 
-# In[ ]:
+# In[ ]
+
 
 '''Function inputs bloom filter, number array and number of entries from number array and outputs -1 if there is false negative, and otherwise false positive rates'''
 def fpr(bf,nums,pos):
