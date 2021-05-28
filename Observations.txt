@@ -1,4 +1,0 @@
-Data type: two peaks
-epochs: 
-
- 
